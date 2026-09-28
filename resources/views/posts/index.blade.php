@@ -7,7 +7,7 @@
         <!-- Header & Action Row -->
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="h4 text-dark mb-0">Manage Posts</h2>
-            <button class="btn btn-success fw-medium" type="button">+ Create Post</button>
+             <a class="btn btn-success fw-medium" href="{{ route('posts.create') }}">Create Post</a>
         </div>
 
         <!-- Table Container -->
@@ -38,7 +38,7 @@
                                     <td>
                                         <div class="d-flex justify-content-center gap-1">
                                             <a href="{{ route('posts.show', $post['id'])}}" class="btn btn-info btn-sm text-white">View</a>
-                                            <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                                            <a href="{{ route('posts.edit',$post['id']) }}" class="btn btn-primary btn-sm">Edit</a>
                                             <button type="button" class="btn btn-danger btn-sm">Delete</button>
                                         </div>
                                     </td>
