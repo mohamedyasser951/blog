@@ -39,7 +39,11 @@
                                         <div class="d-flex justify-content-center gap-1">
                                             <a href="{{ route('posts.show', $post['id'])}}" class="btn btn-info btn-sm text-white">View</a>
                                             <a href="{{ route('posts.edit',$post['id']) }}" class="btn btn-primary btn-sm">Edit</a>
-                                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                                            <form method="POST" action="{{ route('posts.destroy',$post['id']) }}">
+                                                @csrf
+                                                @method("DELETE")
+                                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                            </form>
                                         </div>
                                     </td>
                                 </tr>

@@ -10,7 +10,7 @@ Route::get("/posts/{post}", [PostController::class, "show"])->name(name: "posts.
 Route::post("/posts/store", [PostController::class, 'store'])->name(name: 'posts.store');
 Route::get("/posts/{post}/edit", [PostController::class, 'edit'])->name(name: 'posts.edit');
 Route::put("/posts/{post}",[PostController::class, 'update'])->name(name:"posts.update");
-
+Route::delete("/posts/{post}",[PostController::class, 'destroy'])->name(name:"posts.destroy");
 
 /*
 View is Gloabl Helpers

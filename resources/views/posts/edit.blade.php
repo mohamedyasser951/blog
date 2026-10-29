@@ -12,7 +12,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h4 class="mb-0">Create Post</h4>
+                    <h4 class="mb-0">Edit Post</h4>
                 </div>
 
                 <div class="card-body">

@@ -93,4 +93,9 @@ class PostController extends Controller
 
         return to_route("posts.show", 1);
     }
+
+    public function destroy()
+    {
+        return to_route("posts.index");
+    }
 }
