@@ -19,10 +19,10 @@
                         </a>
                     </div>
                     <div class="card-body p-4">
-                        <h1 class="card-title fw-bold text-dark mb-3">{{ $post['title'] }}</h1>
+                        <h1 class="card-title fw-bold text-dark mb-3">{{ $post->title }}</h1>
                         <hr class="text-muted opacity-25 mb-4">
                         <div class="card-text text-secondary lh-lg fs-5 mb-4">
-                            {{ $post['description'] }}
+                            {{ $post->description }}
                         </div>
                     </div>
                 </div>
@@ -37,13 +37,13 @@
                             <div class="col-md-6">
                                 <div class="p-3 bg-light rounded border">
                                     <small class="text-uppercase fw-bold text-muted d-block mb-1">Posted By</small>
-                                    <span class="fs-5 text-dark fw-semibold">{{ $post['posted_by'] }}</span>
+                                    <span class="fs-5 text-dark fw-semibold">{{ $post->posted_by }}</span>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="p-3 bg-light rounded border">
                                     <small class="text-uppercase fw-bold text-muted d-block mb-1">Created At</small>
-                                    <span class="fs-5 text-dark fw-semibold">{{ $post['created_at'] }}</span>
+                                    <span class="fs-5 text-dark fw-semibold">{{ $post->created_at }}</span>
                                 </div>
                             </div>
                         </div>

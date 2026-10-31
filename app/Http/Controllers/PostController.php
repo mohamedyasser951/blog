@@ -2,73 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     public function index()
     {
-        $allPosts = [
-
-            [
-                "id" => 1,
-                "title" => "Post 1",
-                "posted_by" => "John Doe",
-                "created_at" => "2023-01-01",
-            ],
-            [
-                "id" => 2,
-                "title" => "Post 2",
-                "posted_by" => "Jane Smith",
-                "created_at" => "2023-01-02"
-            ],
-            [
-                "id" => 3,
-                "title" => "Post 3",
-                "posted_by" => "Bob Johnson",
-                "created_at" => "2023-01-03"
-            ],
-
-        ];
+        $allPosts = Post::all();
         return view('posts.index', ["posts" => $allPosts]);
     }
 
     public function show($postId)
     {
-        $allPosts = [
-            [
-                "id" => 1,
-                "title" => "Post 1",
-                "description" => "This is the description for Post 1.",
-                "posted_by" => "John Doe",
-                "created_at" => "2023-01-01",
-            ],
-            [
-                "id" => 2,
-                "title" => "Post 2",
-                "description" => "This is the description for Post 2.",
-                "posted_by" => "Jane Smith",
-                "created_at" => "2023-01-02"
-            ],
-            [
-                "id" => 3,
-                "title" => "Post 3",
-                "description" => "This is the description for Post 3.",
-                "posted_by" => "Bob Johnson",
-                "created_at" => "2023-01-03"
-            ],
-
-        ];
-        $post = collect($allPosts)->firstWhere('id', $postId);
-        if (!$post) {
-            abort(404);
-        }
-        return view('posts.show', ["post" => $post]);
+        $singlePostFromDb = Post::findOrFail($postId);
+        // if (!$singlePostFromDb) {
+        //     abort(404);
+        // }
+        return view('posts.show', ["post" => $singlePostFromDb]);
     }
 
     public function create()
     {
-        return view("posts.create");
+        $users = User::all();
+
+        return view("posts.create", ['users' => $users]);
     }
 
     public function store()
@@ -76,10 +35,20 @@ class PostController extends Controller
         // $data =$_POST;
         // return $data;
 
-        // $title = request()->title;
-        // $description = request()->description;
+        $title = request()->title;
+        $description = request()->description;
+        // $posted_by = request()->posted_by;
 
-        $data = request()->all();
+        // $post = new Post;
+        // $post->title = $title;
+        // $post->description = $description;
+        // // $post->posted_by = $posted_by;
+        // $post->save();
+        Post::create([
+            "title" => $title,
+            "description" => $description,
+        ]);
+
         return to_route("posts.index");
     }
 

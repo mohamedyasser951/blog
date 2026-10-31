@@ -19,7 +19,7 @@
                             <tr>
                                 <th scope="col" style="width: 5%;">#</th>
                                 <th scope="col" class="text-start" style="width: 35%;">Title</th>
-                                <th scope="col" style="width: 20%;">Posted By</th>
+                                <th scope="col" style="width: 20%;">Description</th>
                                 <th scope="col" style="width: 20%;">Created At</th>
                                 <th scope="col" style="width: 20%;">Actions</th>
                             </tr>
@@ -27,14 +27,14 @@
                         <tbody>
                             @foreach ($posts as $post)
                                 <tr>
-                                    <th scope="row">{{ $post['id'] }}</th>
-                                    <td class="text-start">{{ $post['title'] }}</td>
+                                    <th scope="row">{{ $post->id }}</th>
+                                    <td class="text-start">{{ $post->title }}</td>
                                     <td>
                                         <span class="badge bg-secondary">
-                                            {{ $post['posted_by'] }}
+                                            {{ $post->description }}
                                         </span>
                                     </td>
-                                    <td>{{ $post['created_at'] }}</td>
+                                    <td>{{ $post->created_at }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center gap-1">
                                             <a href="{{ route('posts.show', $post['id'])}}" class="btn btn-info btn-sm text-white">View</a>
