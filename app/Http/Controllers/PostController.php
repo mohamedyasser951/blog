@@ -52,13 +52,28 @@ class PostController extends Controller
         return to_route("posts.index");
     }
 
-    public function edit()
+    public function edit(Post $post)
     {
-        return view('posts.edit');
+        $users = User::all();
+        return view('posts.edit', ['users' => $users, 'post' => $post]);
     }
 
-    public function update()
+    public function update($postId)
     {
+
+        $title = request()->title;
+        $description = request()->description;
+        $posted_by = request()->posted_by;
+
+        $singlePostFromDb = Post::findOrFail($postId);
+        $singlePostFromDb->update(
+            [
+                'title' => $title,
+                'description' => $description,
+                'posted_by' => $posted_by
+            ]
+        );
+
 
         return to_route("posts.show", 1);
     }

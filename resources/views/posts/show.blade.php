@@ -36,8 +36,8 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="p-3 bg-light rounded border">
-                                    <small class="text-uppercase fw-bold text-muted d-block mb-1">Posted By</small>
-                                    <span class="fs-5 text-dark fw-semibold">{{ $post->posted_by }}</span>
+                                    <small class="text-uppercase fw-bold text-muted d-block mb-1">Description</small>
+                                    <span class="fs-5 text-dark fw-semibold">{{ $post->description }}</span>
                                 </div>
                             </div>
                             <div class="col-md-6">
